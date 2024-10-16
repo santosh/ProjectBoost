@@ -33,19 +33,19 @@ environment = SubResource("Environment_nxiv5")
 transform = Transform3D(-0.95388, 0.114564, -0.277468, -0.12941, 0.677075, 0.724446, 0.270862, 0.726942, -0.631022, -17, 18.2017, -20)
 shadow_enabled = true
 
-[node name="Floor" type="CSGBox3D" parent="."]
+[node name="Floor" type="CSGBox3D" parent="." groups=["Hazard"]]
 transform = Transform3D(1.255, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 use_collision = true
 size = Vector3(30, 8, 5)
 material = SubResource("StandardMaterial3D_ir1th")
 
-[node name="LaunchPad" type="CSGBox3D" parent="."]
+[node name="LaunchPad" type="CSGBox3D" parent="." groups=["Start"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.72, 0.2, 0)
 use_collision = true
 size = Vector3(4, 0.4, 4)
 material = SubResource("StandardMaterial3D_8q873")
 
-[node name="LandingPad" type="CSGBox3D" parent="."]
+[node name="LandingPad" type="CSGBox3D" parent="." groups=["Goal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.919, 0.2, 0)
 use_collision = true
 size = Vector3(4, 0.4, 4)

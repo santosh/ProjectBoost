@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://sbhd2o1vlwli"]
+[gd_scene load_steps=4 format=3 uid="uid://sbhd2o1vlwli"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_enwtf"]
 
@@ -18,3 +18,8 @@ script = ExtResource("1_enwtf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_vq5sb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_lkjvv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
