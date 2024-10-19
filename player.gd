@@ -24,8 +24,16 @@ func _process(delta: float) -> void:
 # Called on frame on which rigid body comes in contact with other bodies.
 func _on_body_entered(body: Node) -> void:
 	if "Hazard" in body.get_groups():
-		print("you crashed!")
+		on_crash()
 	elif "Goal" in body.get_groups():
-		print("you won! you landed on landing pad")
+		complete_level()
 	elif "Start" in body.get_groups():
 		print("you are back on launch pad")
+
+func on_crash() -> void:
+	print("you crashed!")
+	get_tree().reload_current_scene()
+
+func complete_level() -> void:
+	print("you won! you landed on landing pad")
+	get_tree().quit()
