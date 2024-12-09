@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3m42aaxhyn65"]
+[gd_scene load_steps=10 format=3 uid="uid://vnl4rodfcl5v"]
 
-[ext_resource type="PackedScene" uid="uid://sbhd2o1vlwli" path="res://player.tscn" id="1_d7uii"]
-[ext_resource type="Script" path="res://Level/landing_pad.gd" id="1_rgs5x"]
+[ext_resource type="Script" path="res://Level/landing_pad.gd" id="1_d76hm"]
+[ext_resource type="PackedScene" uid="uid://sbhd2o1vlwli" path="res://player.tscn" id="2_qud0n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f5ahm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -18,6 +18,9 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ir1th"]
 albedo_color = Color(0.4, 0.270588, 0.176471, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_by7cc"]
+albedo_color = Color(0.713575, 0.343571, 0.553249, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8q873"]
 albedo_color = Color(0.35776, 0.3276, 0.78, 1)
@@ -40,6 +43,12 @@ use_collision = true
 size = Vector3(30, 8, 5)
 material = SubResource("StandardMaterial3D_ir1th")
 
+[node name="Obstacle" type="CSGBox3D" parent="." groups=["Hazard"]]
+transform = Transform3D(1.255, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19985, 0)
+use_collision = true
+size = Vector3(3, 2, 3)
+material = SubResource("StandardMaterial3D_by7cc")
+
 [node name="LaunchPad" type="CSGBox3D" parent="." groups=["Start"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.72, 0.2, 0)
 use_collision = true
@@ -51,13 +60,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.919, 0.2, 0)
 use_collision = true
 size = Vector3(4, 0.4, 4)
 material = SubResource("StandardMaterial3D_wktny")
-script = ExtResource("1_rgs5x")
-file_path = "res://Level/level_2.tscn"
+script = ExtResource("1_d76hm")
+file_path = "res://Level/level_3.tscn"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.941471, 0.337095, 0, -0.337095, 0.941471, 0, 7.005, 15.164)
 fov = 54.4
 
-[node name="Player" parent="." instance=ExtResource("1_d7uii")]
+[node name="Player" parent="." instance=ExtResource("2_qud0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.72, 1.4, 0)
 torque_thrust = 80.0

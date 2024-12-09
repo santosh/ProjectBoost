@@ -26,7 +26,7 @@ func _on_body_entered(body: Node) -> void:
 	if "Hazard" in body.get_groups():
 		on_crash()
 	elif "Goal" in body.get_groups():
-		complete_level()
+		complete_level(body.file_path)
 	elif "Start" in body.get_groups():
 		print("you are back on launch pad")
 
@@ -34,6 +34,6 @@ func on_crash() -> void:
 	print("you crashed!")
 	get_tree().reload_current_scene()
 
-func complete_level() -> void:
+func complete_level(next_level_file: String) -> void:
 	print("you won! you landed on landing pad")
-	get_tree().quit()
+	get_tree().change_scene_to_file(next_level_file)
